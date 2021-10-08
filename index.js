@@ -4,10 +4,24 @@ const display = document.getElementById('display');
 const appTitle = document.getElementById('app-name');
 const options = document.getElementById('options');
 
+
+const cleanUp = () => {
+    display.innerHTML = '';
+}
+
 const setDisplay = () => {
     let selectedApp = appList[0];
     appTitle.innerHTML = selectedApp;
     appTitle.style.color = '#2ED9EB';
+    if (selectedApp === 'art') {
+        cleanUp();
+        return generateArt();
+    } else if (selectedApp === 'game') {
+        cleanUp();
+        return generateGame();
+    } else {
+        cleanUp();
+    }
 };
 
 const rotateRight = () => {
